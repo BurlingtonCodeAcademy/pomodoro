@@ -1,23 +1,11 @@
 # pomodoro
 countdown timer web app
 
-
 ## Instructions:
 
-http://bootcamp.burlingtoncodeacademy.com/projects/pomodoro
-
-## Acceptance Tests:
-
-1. `npm start`
-2. **open separate terminal**
-3. `npm test`  
+* Full project description with stories and links: http://bootcamp.burlingtoncodeacademy.com/projects/pomodoro
+* To get started, clone this repo and run `npm install`
+* To launch the local server, run `npm start`
+* To run acceptance tests, **open a separate terminal** and run `npm test`  
 
 Acceptance tests are stored in `./cypress/integration` -- please add your own for later stories.
-
-## References:
-
-Cypress Clocks: 
-
-* https://docs.cypress.io/guides/guides/stubs-spies-and-clocks.html#Clock
-* https://docs.cypress.io/api/commands/clock.html
-
