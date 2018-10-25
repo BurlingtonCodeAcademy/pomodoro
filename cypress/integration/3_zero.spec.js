@@ -36,7 +36,7 @@ describe('Zero', () => {
         cy.get('#start')
           .should('be.disabled')
         cy.get('#pause')
-          .should('be.enabled')
+          .should('be.disabled')
       });
   
     });
