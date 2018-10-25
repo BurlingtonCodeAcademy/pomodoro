@@ -17,16 +17,80 @@
 
     <div id="clock">
         
+      <span id="minutes">25</span>
+      :
+      <span id="seconds">00</span>
+
     </div>
 
     <div id="buttons">
         <button id='start' onclick='start()'>Start</button> 
+        <button id='pause' onclick='pause()'>Pause</button> 
+        <button id='reset' onclick='reset()'>Reset</button> 
         
-        [Pause] [Reset]
     </div>
 
+    <script>
+
+let secondsRemaining = 25 * 60;
+const tickDelay = 1000;
+
+let startedAt = null;
+let secondsElapsed = 0;
+
+function tick() {
+    secondsElapsed = Math.floor((Date.now() - startedAt) / 1000)
+    secondsRemaining = totalSec - secondsElapsed;
+    
+    updateClock();
+
+    if (secondsRemaining > 0) {
+        setTimeout(tick, tickDelay);
+    } else {
+      document.getElementById('start').disabled = false
+      document.getElementById('pause').disabled = true
+    }
+}
+
+function start() {
+  startedAt = Date.now()
+  totalSec = secondsRemaining;
+  secondsElapsed = 0;
+
+  setTimeout(tick, tickDelay);
+
+  document.getElementById('start').disabled = true
+  document.getElementById('pause').disabled = true
+
+}
+
+function updateClock() {
+    let clock = document.getElementById('clock');
+    let minutes = Math.floor(secondsRemaining / 60)
+
+    let seconds = secondsRemaining % 60;
+    if (seconds<10) {
+      seconds = '0' + seconds;
+    }
+
+    document.getElementById('minutes').textContent = minutes;
+    document.getElementById('seconds').textContent = seconds;
+}
+
+function pause() {
+
+}
+
+function reset() {
+  
+}
+updateClock();
+
+    </script>
 </body>
 </html>
+
+
 
 
 
